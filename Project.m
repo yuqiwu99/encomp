@@ -85,17 +85,21 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 %initial angle
 
 load('mapmat.mat')  %#ok<LOAD>
-X = conv2(ones(9,9)/64,cumsum(cumsum(randn(300)),2));
+cameraAngle = 45;
+X = conv2(ones(9)/64,cumsum(cumsum(randn(300)),2));
 surfc(X,'EdgeColor','none','EdgeLighting','Phong'...
     ,'FaceColor','interp');
 colormap(a);
-cameraAngle = 45;
-view(cameraAngle,45);
+    view(cameraAngle,45);
+    
+
 caxis([-15,315]);
 grid off; axis off;
  
 light('Position',[1,2,2]);  %%a fixed light position, maybe we can let it move
 colorbar;
+
+
 
 
 % --- Executes on slider movement.
